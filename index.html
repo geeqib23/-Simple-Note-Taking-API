@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Note API Documentation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1, h2 {
+      color: #333;
+    }
+
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      font-family: monospace;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>API Documentation</h1>
+
+  <h2>1. Create Note</h2>
+  <ul>
+    <li><strong>Endpoint:</strong> <code>POST /notes</code></li>
+    <li><strong>Request Body:</strong>
+      <ul>
+        <li>Format: JSON</li>
+        <li>Fields:
+          <ul>
+            <li><code>title</code> (string): Title of the note (required, max length: 100 characters).</li>
+            <li><code>content</code> (string): Content of the note (required).</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><strong>Response:</strong>
+      <ul>
+        <li>Status Code: 200 OK</li>
+        <li>Body: JSON representation of the created note.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>2. Retrieve All Notes</h2>
+  <ul>
+    <li><strong>Endpoint:</strong> <code>GET /notes</code></li>
+    <li><strong>Request Body:</strong> N/A</li>
+    <li><strong>Response:</strong>
+      <ul>
+        <li>Status Code: 200 OK</li>
+        <li>Body: JSON array containing all notes.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>3. Retrieve a Single Note by ID</h2>
+  <ul>
+    <li><strong>Endpoint:</strong> <code>GET /notes/:id</code></li>
+    <li><strong>Request Parameters:</strong>
+      <ul>
+        <li><code>id</code> (string): ID of the note.</li>
+      </ul>
+    </li>
+    <li><strong>Response:</strong>
+      <ul>
+        <li>Status Code: 200 OK</li>
+        <li>Body: JSON representation of the requested note.</li>
+        <li>Status Code: 404 Not Found</li>
+        <li>Body: <code>{ "error": "Note not found" }</code> if the note with the given ID does not exist.</li>
+        <li>Status Code: 400 Bad Request</li>
+        <li>Body: <code>{ "error": "Invalid Note ID" }</code> if the provided ID is not valid.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>4. Update Note</h2>
+  <ul>
+    <li><strong>Endpoint:</strong> <code>PUT /notes/:id</code></li>
+    <li><strong>Request Parameters:</strong>
+      <ul>
+        <li><code>id</code> (string): ID of the note.</li>
+      </ul>
+    </li>
+    <li><strong>Request Body:</strong>
+      <ul>
+        <li>Format: JSON</li>
+        <li>Fields:
+          <ul>
+            <li><code>title</code> (string): New title of the note (required, max length: 100 characters).</li>
+            <li><code>content</code> (string): New content of the note (required).</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><strong>Response:</strong>
+      <ul>
+        <li>Status Code: 200 OK</li>
+        <li>Body: JSON representation of the updated note.</li>
+        <li>Status Code: 404 Not Found</li>
+        <li>Body: <code>{ "error": "Note not found" }</code> if the note with the given ID does not exist.</li>
+        <li>Status Code: 400 Bad Request</li>
+        <li>Body: <code>{ "error": "Invalid Note ID" }</code> if the provided ID is not valid.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>5. Delete Note</h2>
+  <ul>
+    <li><strong>Endpoint:</strong> <code>DELETE /notes/:id</code></li>
+    <li><strong>Request Parameters:</strong>
+      <ul>
+        <li><code>id</code> (string): ID of the note.</li>
+      </ul>
+    </li>
+    <li><strong>Response:</strong>
+      <ul>
+        <li>Status Code: 200 OK</li>
+        <li>Body: <code>{ "message": "Note deleted successfully" }</code>.</li>
+        <li>Status Code: 404 Not Found</li>
+        <li>Body: <code>{ "error": "Note not found" }</code> if the note with the given ID does not exist.</li>
+        <li>Status Code: 400 Bad Request</li>
+        <li>Body: <code>{ "error": "Invalid Note ID" }</code> if the provided ID is not valid.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>Error Handling</h2>
+  <ul>
+    <li><strong>Status Code:</strong> 500 Internal Server Error</li>
+    <li><strong>Body:</strong> <code>{ "error": "Internal Server Error" }</code> for unexpected errors.</li>
+  </ul>
+
+  <h2>Basic Authentication </h2>
+  <ul>
+    <li><strong>Note:</strong> Basic authentication is added for each endpoint to protect the API endpoints using username and password.</li>
+  </ul>
+
+</body>
+</html>

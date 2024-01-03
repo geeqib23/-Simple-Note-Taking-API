@@ -1,5 +1,7 @@
 # Backend Developer Assignment: Simple Note API Documentation
 
+Stack - NodeJS, Express.js, MongoDB, Jest, Typescript, Mongoose
+
 ## 1. Create Note
 
 - **Endpoint:** `POST /notes`
@@ -67,8 +69,18 @@
 ## Error Handling
 
 - **Status Code:** 500 Internal Server Error
-- **Body:** `{ "error": "Internal Server Error" }` for unexpected errors.
+- **Body:** `{ "error": error message }` for unexpected errors.
 
-## Basic Authentication (Optional)
+## Basic Authentication
 
 - **Note:** Basic authentication is added for each endpoint to protect the API endpoints using a username and password.
+
+## API Testing
+
+Tests are written in notes.test.ts file using JESTJS wherein all endpoints are tested for their output considering all edge cases.
+![image](https://github.com/geeqib23/-Simple-Note-Taking-API/assets/59912182/5611a6f7-2a45-461b-8831-cb76f20ca2ec)
+
+
+
+
+

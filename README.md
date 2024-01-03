@@ -1,6 +1,16 @@
-# Backend Developer Assignment: Simple Note API Documentation
+# Simple Note-Taking API 
 
-Stack - NodeJS, Express.js, MongoDB, Jest, Typescript, Mongoose
+**Stack** - NodeJS, Express.js, MongoDB, Jest, Typescript, Mongoose
+
+## How to run
+1. Clone the repository
+2. Make sure you have Typescript and TS-Node installed. If not use ->
+   - `npm install -g typescript`
+   - `npm install -g ts-node`
+3. Run `npm install`
+4. Run `ts-node .\src\app.ts` to run the server on localhost
+
+# API Documentation
 
 ## 1. Create Note
 
@@ -77,7 +87,8 @@ Stack - NodeJS, Express.js, MongoDB, Jest, Typescript, Mongoose
 
 ## API Testing
 
-Tests are written in notes.test.ts file using JESTJS wherein all endpoints are tested for their output considering all edge cases.
+Tests are written in notes.test.ts file using Jest wherein all endpoints are tested for their output considering all edge cases.
+
 ![image](https://github.com/geeqib23/-Simple-Note-Taking-API/assets/59912182/5611a6f7-2a45-461b-8831-cb76f20ca2ec)
 
 
